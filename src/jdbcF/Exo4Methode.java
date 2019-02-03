@@ -64,7 +64,7 @@ public class Exo4Methode {
         PrintWriter file = new PrintWriter(new FileWriter("C:\\Users\\Gasana.NHonore\\Desktop\\writejdbcTest.csv"));
 //header
         for (int i = 1; i <= resultMeta.getColumnCount(); i++) {
-            file.print(resultMeta.getColumnName(i) + ";");
+            file.print(resultMeta.getColumnName(1) + ";");
         }
         file.print("\n");
         while (result.next()) {
