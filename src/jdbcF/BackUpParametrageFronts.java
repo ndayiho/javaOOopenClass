@@ -113,7 +113,10 @@ public class BackUpParametrageFronts {
                     if (resultMeta_translation_value.getColumnType(i) == 4 || resultMeta_translation_value.getColumnType(i) == -7) {
                         translation_value_Columnvalues = translation_value_Columnvalues.concat("," + result_translation_value.getString(resultMeta_translation_value.getColumnLabel(i)));
                     } else {
-//                        result_translation.getString(resultMeta_translation.getColumnLabel(i).replace("'",hello));
+                        if(result_translation_value.getString(resultMeta_translation_value.getColumnLabel(i)).contains("'")){
+
+                            result_translation_value.getString(resultMeta_translation_value.getColumnLabel(i)).replace("utilisation","hello");
+                        }
                         translation_value_Columnvalues = translation_value_Columnvalues.concat(",'" + result_translation_value.getString(resultMeta_translation_value.getColumnLabel(i)) + "'");
                     }
 
@@ -148,6 +151,9 @@ public class BackUpParametrageFronts {
                     if (ui_resultMeta.getColumnType(i) == 4 || ui_resultMeta.getColumnType(i) == -7) {
                         ui_values = ui_values.concat("," + ui_result.getString(ui_resultMeta.getColumnLabel(i)));
                     } else {
+                        if (ui_result.getString(ui_resultMeta.getColumnLabel(i)).contains("'"))
+                            ui_result.getString(ui_resultMeta.getColumnLabel(i)).replace("'","\'");
+
                         ui_values = ui_values.concat(",'" + ui_result.getString(ui_resultMeta.getColumnLabel(i)) + "'");
                     }
                 } else {
